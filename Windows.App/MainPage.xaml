@@ -11,8 +11,8 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="89*"/>
-            <ColumnDefinition Width="661*"/>
+            <ColumnDefinition Width="67*"/>
+            <ColumnDefinition Width="433*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
@@ -55,8 +55,119 @@
                     <RadioButton Grid.Row="1" Content="Base 64" Margin="343,0,0,0" />
 
                     <DropDownButton Content="Type" CornerRadius="5" Grid.Row="1" Margin="449,29,0,0" VerticalAlignment="Top" ></DropDownButton>
+                    <Button  Content="Show Result" Margin="537,0,0,0" x:Name="btn_showResult" Click="btn_showResult_Click" Grid.Row="1" CornerRadius="5"/>
+
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <SplitView  Grid.Column="0" x:Name="spl_Result" HorizontalAlignment="Center" >
+                                <SplitView.Pane>
+                                    <Grid>
+                                        <ScrollViewer>
+                                            <RichTextBlock x:Name="txt_result" IsTextSelectionEnabled="True" Padding="15">
+                                                <Paragraph x:Name="txt_resultContent">
+                                                    This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                           
+   This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                               This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test   This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                             This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                           
+   This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                               This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test   This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                             This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                           
+   This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                               This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test   This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                             This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                           
+   This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                               This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test   This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                            This is an test  This is an test This is an test
+                                                </Paragraph>
+                                            </RichTextBlock>
+                                        </ScrollViewer>
+                                    </Grid>
+                                </SplitView.Pane>
+                            </SplitView>
+                        </Grid>
+                        
+                        <Grid Grid.Column="1" >
+                            <RichEditBox Padding="10" x:Name="txt_SendData" TabNavigation="Once" Margin="20,10,20,20" PlaceholderText="Content Value For Send" FontSize="20" TabIndex="8">
+                                
+                            </RichEditBox>
+                        </Grid>
+
+                    </Grid>
                 </Grid>
             </Border>
+
+
 
             <Border Grid.Column="0" Grid.Row="1">
                 <Grid>
@@ -71,10 +182,11 @@
                     <ToggleButton IsChecked="True" x:Name="btnTheme" CornerRadius="5" Content="Dark" Margin="0,51,0,0" VerticalAlignment="Top" Width="180" HorizontalAlignment="Center" Checked="btnTheme_Checked" Unchecked="btnTheme_Unchecked"/>
                 </Grid>
             </Border>
+
         </Grid>
 
 
 
-        <TextBlock Text="Friends Co" Grid.Column="1" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="525,0,0,0"/>
+        <TextBlock Text="Friends Co" Grid.Column="1" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="525,0,0,0" Height="27" Width="93"/>
     </Grid>
 </Page>

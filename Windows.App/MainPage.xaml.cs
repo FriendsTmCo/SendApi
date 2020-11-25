@@ -69,6 +69,11 @@ namespace TestApi
             }
             
         }
+
+        private void btn_showResult_Click(object sender, RoutedEventArgs e)
+        {
+            spl_Result.IsPaneOpen = true;
+        }
     }    
 }
 
