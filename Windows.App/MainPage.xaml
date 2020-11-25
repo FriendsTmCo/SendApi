@@ -56,12 +56,12 @@
                         <Button Content="Send" Grid.Column="2" FontSize="20" CornerRadius="5"  HorizontalAlignment="Center" Height="52" Width="112" x:Name="btnSend" Click="btnSend_Click"/>
                     </Grid>
 
-                    <RadioButton IsChecked="True" Grid.Row="1" Content="none" Margin="20,0,0,0" />
-                    <RadioButton Grid.Row="1" Content="Params" Margin="123,0,0,0" />
-                    <RadioButton Grid.Row="1" Content="Data" Margin="233,0,0,0" />
-                    <RadioButton Grid.Row="1" Content="Base 64" Margin="343,0,0,0" />
+                    <RadioButton IsChecked="True" Grid.Row="1" Content="none" Margin="20,0,0,0" Width="83" />
+                    <RadioButton Grid.Row="1" Content="Params" Margin="144,0,0,0" />
+                    <RadioButton Grid.Row="1" Content="Data" Margin="268,0,0,0" />
+                    <RadioButton Grid.Row="1" Content="Base 64" Margin="392,0,0,0" />
 
-                    <DropDownButton x:Name="dpb_Type" Content="Type" CornerRadius="5" Grid.Row="1" Margin="449,29,0,0" VerticalAlignment="Top" >
+                    <DropDownButton x:Name="dpb_Type" Content="Type" CornerRadius="5" Grid.Row="1" Margin="527,0,0,0" >
                         <DropDownButton.Flyout>
                             <MenuFlyout Placement="BottomEdgeAlignedLeft">
                                 <MenuFlyoutItem Text="Json" Tag="Json" Click="ChoseType"/>
@@ -71,7 +71,7 @@
                             </MenuFlyout>
                         </DropDownButton.Flyout>
                     </DropDownButton>
-                    <Button  Content="Show Result" Margin="537,0,0,0" x:Name="btn_showResult" Click="btn_showResult_Click" Grid.Row="1" CornerRadius="5"/>
+                    <Button  Content="Show Result" x:Name="btn_showResult" Click="btn_showResult_Click" Grid.Row="1" CornerRadius="5" Margin="617,0,0,0"/>
 
                     <Grid Grid.Row="2">
                         <Grid.ColumnDefinitions>
@@ -195,8 +195,8 @@
                     </Grid.RowDefinitions>
 
                     <Button Content="Login" x:Name="btnAccount" CornerRadius="5" FontSize="20" Margin="0,6,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="180" Click="btnAccount_Click"/>
-                    <ToggleButton IsChecked="True" x:Name="btnTheme" CornerRadius="5" Content="Dark" Margin="0,51,0,0" VerticalAlignment="Top" Width="180" HorizontalAlignment="Center" Checked="btnTheme_Checked" Unchecked="btnTheme_Unchecked"/>
-                    <ToggleButton IsChecked="True" x:Name="btnHttpVersion" CornerRadius="5" Content="RestFull" Width="180" HorizontalAlignment="Center" Unchecked="btnHttpVersion_UnChecked" Checked="btnHttpVersion_UnChecked"  Margin="0,97,0,0" VerticalAlignment="Top"/>
+
+                    <ToggleButton IsChecked="True" x:Name="btnHttpVersion" CornerRadius="5" Content="RestFull" Width="180" HorizontalAlignment="Center" Unchecked="btnHttpVersion_UnChecked" Checked="btnHttpVersion_UnChecked"/>
 
                 </Grid>
             </Border>

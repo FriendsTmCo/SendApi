@@ -48,16 +48,7 @@ namespace TestApi
                             });
         }
 
-        private void btnTheme_Checked(object sender, RoutedEventArgs e)
-        {
-            main.Background = new SolidColorBrush(new Windows.UI.Color { R = 0,A = 0,B = 0,G =0});
-        }
-
-        private void btnTheme_Unchecked(object sender, RoutedEventArgs e)
-        {
-            main.Background = new SolidColorBrush(new Windows.UI.Color { R = 202, A = 180, B = 202, G = 202});
-        }
-
+       
         private async void btnSend_Click(object sender, RoutedEventArgs e)
         {
             MessageDialog msg = new MessageDialog($"Send To ({txtUrl.Text})");
