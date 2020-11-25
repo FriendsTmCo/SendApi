@@ -3,6 +3,7 @@ using TestApi.Pages;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 using Windows.UI.Popups;
+using Windows.UI.Text;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -73,6 +74,20 @@ namespace TestApi
         private void btn_showResult_Click(object sender, RoutedEventArgs e)
         {
             spl_Result.IsPaneOpen = true;
+        }
+
+        private void ChoseMethod(object sender,RoutedEventArgs e)
+        {
+            var option = ((MenuFlyoutItem)sender).Tag.ToString();
+
+            dpb_Metod.Content = option;
+        }
+
+        private void ChoseType(object sender,RoutedEventArgs e)
+        {
+            var option = ((MenuFlyoutItem)sender).Tag.ToString();
+
+            dpb_Type.Content = option;
         }
     }    
 }

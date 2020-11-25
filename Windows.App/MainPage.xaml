@@ -41,8 +41,15 @@
                             <ColumnDefinition Width="150"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
 
-                        <DropDownButton CornerRadius="5" Content="Methode" FontSize="20" HorizontalAlignment="Center" Height="54" >
-
+                        <DropDownButton CornerRadius="5" Content="Methode" x:Name="dpb_Metod" FontSize="20" HorizontalAlignment="Center" Height="54" >
+                            <DropDownButton.Flyout>
+                                <MenuFlyout Placement="BottomEdgeAlignedLeft" >
+                                    <MenuFlyoutItem Text="POST" Tag="POST" Click="ChoseMethod"/>
+                                    <MenuFlyoutItem Text="GET" Tag="GET" Click="ChoseMethod"/>
+                                    <MenuFlyoutItem Text="PUT" Tag="PUT" Click="ChoseMethod"/>
+                                    <MenuFlyoutItem Text="DELETE" Tag="DELETE" Click="ChoseMethod"/>
+                                </MenuFlyout>
+                            </DropDownButton.Flyout>
                         </DropDownButton>
 
                         <TextBox CornerRadius="5" FontSize="25" Grid.Column="1" PlaceholderText="Url" x:Name="txtUrl" VerticalAlignment="Center" Height="53" Margin="62,0,29,0"/>
@@ -54,7 +61,16 @@
                     <RadioButton Grid.Row="1" Content="Data" Margin="233,0,0,0" />
                     <RadioButton Grid.Row="1" Content="Base 64" Margin="343,0,0,0" />
 
-                    <DropDownButton Content="Type" CornerRadius="5" Grid.Row="1" Margin="449,29,0,0" VerticalAlignment="Top" ></DropDownButton>
+                    <DropDownButton x:Name="dpb_Type" Content="Type" CornerRadius="5" Grid.Row="1" Margin="449,29,0,0" VerticalAlignment="Top" >
+                        <DropDownButton.Flyout>
+                            <MenuFlyout Placement="BottomEdgeAlignedLeft">
+                                <MenuFlyoutItem Text="Json" Tag="Json" Click="ChoseType"/>
+                                <MenuFlyoutItem Text="Html" Tag="Html" Click="ChoseType"/>
+                                <MenuFlyoutItem Text="XML" Tag="XML" Click="ChoseType"/>
+                                <MenuFlyoutItem Text="None" Tag="None" Click="ChoseType"/>
+                            </MenuFlyout>
+                        </DropDownButton.Flyout>
+                    </DropDownButton>
                     <Button  Content="Show Result" Margin="537,0,0,0" x:Name="btn_showResult" Click="btn_showResult_Click" Grid.Row="1" CornerRadius="5"/>
 
                     <Grid Grid.Row="2">
@@ -156,10 +172,10 @@
                                 </SplitView.Pane>
                             </SplitView>
                         </Grid>
-                        
+
                         <Grid Grid.Column="1" >
                             <RichEditBox Padding="10" x:Name="txt_SendData" TabNavigation="Once" Margin="20,10,20,20" PlaceholderText="Content Value For Send" FontSize="20" TabIndex="8">
-                                
+
                             </RichEditBox>
                         </Grid>
 
