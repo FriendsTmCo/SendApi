@@ -21,7 +21,7 @@ namespace TestApi
             this.InitializeComponent();
         }
 
-        private async  void btnAccount_Click(object sender, RoutedEventArgs e)
+        private async void btnAccount_Click(object sender, RoutedEventArgs e)
         {
             var currentAV = ApplicationView.GetForCurrentView();
             var newAV = CoreApplication.CreateNewView();
@@ -34,7 +34,7 @@ namespace TestApi
                                 newAppView.Title = "Login";
 
                                 var frame = new Frame();
-                                frame.Navigate(typeof(Login),null);
+                                frame.Navigate(typeof(Login), null);
                                 newWindow.Content = frame;
                                 newWindow.Activate();
 
@@ -46,7 +46,7 @@ namespace TestApi
                             });
         }
 
-       
+
         private async void btnSend_Click(object sender, RoutedEventArgs e)
         {
             MessageDialog msg = new MessageDialog($"Send To ({txtUrl.Text})");
@@ -57,7 +57,6 @@ namespace TestApi
             {
 
             }
-            
         }
 
         private void btn_showResult_Click(object sender, RoutedEventArgs e)
@@ -65,21 +64,21 @@ namespace TestApi
             spl_Result.IsPaneOpen = true;
         }
 
-        private void ChoseMethod(object sender,RoutedEventArgs e)
+        private void ChoseMethod(object sender, RoutedEventArgs e)
         {
             var option = ((MenuFlyoutItem)sender).Tag.ToString();
 
             dpb_Metod.Content = option;
         }
 
-        private void ChoseType(object sender,RoutedEventArgs e)
+        private void ChoseType(object sender, RoutedEventArgs e)
         {
             var option = ((MenuFlyoutItem)sender).Tag.ToString();
 
             dpb_Type.Content = option;
         }
 
-        private void btnHttpVersion_UnChecked(object sender,RoutedEventArgs e)
+        private void btnHttpVersion_UnChecked(object sender, RoutedEventArgs e)
         {
             if (btnHttpVersion.IsChecked == true)
             {
@@ -87,16 +86,15 @@ namespace TestApi
             }
             else
             {
-               btnHttpVersion.Content = "gRPC";
+                btnHttpVersion.Content = "gRPC";
             }
-            
         }
 
         private void main_Loaded(object sender, RoutedEventArgs e)
         {
-            lbl_Date.Text = DateTime.Now.Year.ToString() + " " + DateTime.Now.DayOfWeek.ToString()+ " " + DateTime.Now.Month.ToString("00");
+            lbl_Date.Text = DateTime.Now.Year.ToString() + " " + DateTime.Now.DayOfWeek.ToString() + " " + DateTime.Now.Month.ToString("00");
         }
-    }    
+    }
 }
 
 
