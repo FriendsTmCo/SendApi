@@ -89,6 +89,24 @@ namespace TestApi
 
             dpb_Type.Content = option;
         }
+
+        private void btnHttpVersion_UnChecked(object sender,RoutedEventArgs e)
+        {
+            if (btnHttpVersion.IsChecked == true)
+            {
+                btnHttpVersion.Content = "Reset Full";
+            }
+            else
+            {
+               btnHttpVersion.Content = "gRPC";
+            }
+            
+        }
+
+        private void main_Loaded(object sender, RoutedEventArgs e)
+        {
+            lbl_Date.Text = DateTime.Now.Year.ToString() + " " + DateTime.Now.DayOfWeek.ToString()+ " " + DateTime.Now.Month.ToString("00");
+        }
     }    
 }
 

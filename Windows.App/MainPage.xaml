@@ -7,7 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="main_Loaded">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -30,7 +30,7 @@
                         <RowDefinition Height="150"></RowDefinition>
                         <RowDefinition Height="90"></RowDefinition>
                         <RowDefinition Height="1*"></RowDefinition>
-                        <RowDefinition Height="150"></RowDefinition>
+                        <RowDefinition Height="90"></RowDefinition>
                     </Grid.RowDefinitions>
 
                     <Grid Grid.Row="0">
@@ -180,28 +180,28 @@
                         </Grid>
 
                     </Grid>
+
+                    <TextBlock Grid.Row="3" x:Name="lbl_Date" Margin="978,45,10,10"/>
                 </Grid>
             </Border>
-
-
 
             <Border Grid.Column="0" Grid.Row="1">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="90"></RowDefinition>
                         <RowDefinition Height="150"></RowDefinition>
+                        <RowDefinition Height="90"></RowDefinition>
                         <RowDefinition Height="1*"></RowDefinition>
                         <RowDefinition Height="150"></RowDefinition>
                     </Grid.RowDefinitions>
 
                     <Button Content="Login" x:Name="btnAccount" CornerRadius="5" FontSize="20" Margin="0,6,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="180" Click="btnAccount_Click"/>
                     <ToggleButton IsChecked="True" x:Name="btnTheme" CornerRadius="5" Content="Dark" Margin="0,51,0,0" VerticalAlignment="Top" Width="180" HorizontalAlignment="Center" Checked="btnTheme_Checked" Unchecked="btnTheme_Unchecked"/>
+                    <ToggleButton IsChecked="True" x:Name="btnHttpVersion" CornerRadius="5" Content="RestFull" Width="180" HorizontalAlignment="Center" Unchecked="btnHttpVersion_UnChecked" Checked="btnHttpVersion_UnChecked"  Margin="0,97,0,0" VerticalAlignment="Top"/>
+
                 </Grid>
             </Border>
 
         </Grid>
-
-
 
         <TextBlock Text="Friends Co" Grid.Column="1" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="525,0,0,0" Height="27" Width="93"/>
     </Grid>
