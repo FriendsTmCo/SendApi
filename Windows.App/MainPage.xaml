@@ -73,7 +73,7 @@
                     </DropDownButton>
                     <Button  Content="Show Result" x:Name="btn_showResult" Click="btn_showResult_Click" Grid.Row="1" CornerRadius="5" Margin="617,0,0,0"/>
 
-                    <Grid Grid.Row="2">
+                    <Grid Grid.Row="2" x:Name="gr_Params">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"></ColumnDefinition>
                             <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -82,7 +82,14 @@
                             <SplitView  Grid.Column="0" x:Name="spl_Result" HorizontalAlignment="Center" >
                                 <SplitView.Pane>
                                     <Grid>
-                                        <ScrollViewer>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="80"></RowDefinition>
+                                            <RowDefinition Height="1*"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Button Content="Json" CornerRadius="5" Width="96"/>
+                                        <Button Content="Row" CornerRadius="5" HorizontalAlignment="Center" Width="119"/>
+                                        <Button Content="Request" Margin="225,0,0,0" CornerRadius="5" Width="95"/>
+                                        <ScrollViewer Grid.Row="1">
                                             <RichTextBlock x:Name="txt_result" IsTextSelectionEnabled="True" Padding="15">
                                                 <Paragraph x:Name="txt_resultContent">
                                                     This is an test
@@ -172,9 +179,17 @@
                                 </SplitView.Pane>
                             </SplitView>
                         </Grid>
+                        <Grid Grid.Column="1" x:Name="gr_txtContentRequest">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="80"></RowDefinition>
+                                <RowDefinition Height="1*"></RowDefinition>
+                            </Grid.RowDefinitions>
 
-                        <Grid Grid.Column="1" >
-                            <RichEditBox Padding="10" x:Name="txt_SendData" TabNavigation="Once" Margin="20,10,20,20" PlaceholderText="Content Value For Send" FontSize="20" TabIndex="8">
+                            <Button Content="Headers" CornerRadius="5" Margin="20,0,0,0"/>
+                            <Button Content="Parameters" Margin="110,0,0,0" CornerRadius="5"/>
+                            <Button Content="Cookies" CornerRadius="5" Margin="219,0,0,0"/>
+
+                            <RichEditBox Grid.Row="1" Padding="10" x:Name="txt_SendData" TabNavigation="Once" Margin="20,10,20,20" PlaceholderText="Content Value For Send" FontSize="20" TabIndex="8">
 
                             </RichEditBox>
                         </Grid>
@@ -200,9 +215,7 @@
 
                 </Grid>
             </Border>
-
         </Grid>
-
         <TextBlock Text="Friends Co" Grid.Column="1" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="525,0,0,0" Height="27" Width="93"/>
     </Grid>
 </Page>
