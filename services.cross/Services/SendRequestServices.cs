@@ -8,16 +8,8 @@ using System.Threading.Tasks;
 
 namespace services.cross.Services
 {
-    public class SendRequestServices : ISendRequestRepository
+    public class SendRequestServices 
     {
-        private HttpClient httpClient = new HttpClient();
-
-        public async Task<ApiSendResult> PostJsonAsync(string url, object jsonDate)
-        {
-            return await Task.Run(() =>
-            {
-                return null;
-            });
-        }
+       
     }
 }

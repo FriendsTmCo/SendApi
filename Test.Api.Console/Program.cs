@@ -6,7 +6,7 @@ namespace Test.Api.Console
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+           
         }
     }
 }

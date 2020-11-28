@@ -136,10 +136,4 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\Test.API.Mobile\Test.API.Mobile.csproj">
-      <Project>{176567A4-3434-4851-9C50-06F200F583C4}</Project>
-      <Name>Test.API.Mobile</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>

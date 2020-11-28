@@ -88,11 +88,5 @@
     <AndroidResource Include="Resources\drawable\icon_about.png" />
     <AndroidResource Include="Resources\drawable\icon_feed.png" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Test.API.Mobile\Test.API.Mobile.csproj">
-      <Project>{176567A4-3434-4851-9C50-06F200F583C4}</Project>
-      <Name>Test.API.Mobile</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
