@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http;
 using TestApi.Pages;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
@@ -21,30 +22,30 @@ namespace TestApi
             this.InitializeComponent();
         }
 
-        private async void btnAccount_Click(object sender, RoutedEventArgs e)
-        {
-            var currentAV = ApplicationView.GetForCurrentView();
-            var newAV = CoreApplication.CreateNewView();
-            await newAV.Dispatcher.RunAsync(
-                            CoreDispatcherPriority.Normal,
-                            async () =>
-                            {
-                                var newWindow = Window.Current;
-                                var newAppView = ApplicationView.GetForCurrentView();
-                                newAppView.Title = "Login";
+        //private async void btnAccount_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var currentAV = ApplicationView.GetForCurrentView();
+        //    var newAV = CoreApplication.CreateNewView();
+        //    await newAV.Dispatcher.RunAsync(
+        //                    CoreDispatcherPriority.Normal,
+        //                    async () =>
+        //                    {
+        //                        var newWindow = Window.Current;
+        //                        var newAppView = ApplicationView.GetForCurrentView();
+        //                        newAppView.Title = "Login";
 
-                                var frame = new Frame();
-                                frame.Navigate(typeof(Login), null);
-                                newWindow.Content = frame;
-                                newWindow.Activate();
+        //                        var frame = new Frame();
+        //                        frame.Navigate(typeof(Login), null);
+        //                        newWindow.Content = frame;
+        //                        newWindow.Activate();
 
-                                await ApplicationViewSwitcher.TryShowAsStandaloneAsync(
-                                    newAppView.Id,
-                                    ViewSizePreference.UseMinimum,
-                                    currentAV.Id,
-                                    ViewSizePreference.UseMinimum);
-                            });
-        }
+        //                        await ApplicationViewSwitcher.TryShowAsStandaloneAsync(
+        //                            newAppView.Id,
+        //                            ViewSizePreference.UseMinimum,
+        //                            currentAV.Id,
+        //                            ViewSizePreference.UseMinimum);
+        //                    });
+        //}
 
 
         private async void btnSend_Click(object sender, RoutedEventArgs e)
@@ -55,7 +56,7 @@ namespace TestApi
             var result = await msg.ShowAsync();
             if ((int)result.Id == 0)
             {
-
+               
             }
         }
 
@@ -78,21 +79,19 @@ namespace TestApi
             dpb_Type.Content = option;
         }
 
-        private void btnHttpVersion_UnChecked(object sender, RoutedEventArgs e)
-        {
-            if (btnHttpVersion.IsChecked == true)
-            {
-                btnHttpVersion.Content = "Reset Full";
-            }
-            else
-            {
-                btnHttpVersion.Content = "gRPC";
-            }
-        }
 
         private void main_Loaded(object sender, RoutedEventArgs e)
         {
             lbl_Date.Text = DateTime.Now.Year.ToString() + " " + DateTime.Now.DayOfWeek.ToString() + " " + DateTime.Now.Month.ToString("00");
+        }
+
+        private async void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        {
+            var option = (NavigationViewItem)sender.SelectedItem;
+            MessageDialog msg = new MessageDialog($"{option.Tag.ToString()}");
+            msg.Commands.Add(new UICommand { Id = 0, Label = "OK" });
+            msg.Commands.Add(new UICommand { Id = 1, Label = "Cancel" });
+            await msg.ShowAsync();
         }
     }
 }
