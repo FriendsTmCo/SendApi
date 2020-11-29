@@ -9,127 +9,128 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="main_Loaded">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="433*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="1*"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+    <ScrollViewer HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Visible">
+        <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="150"></ColumnDefinition>
-                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="433*"/>
             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
 
-            <Frame Grid.Column="1" Grid.Row="1" x:Name="fr_Content">
-                <Border >
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="150"></RowDefinition>
-                            <RowDefinition Height="90"></RowDefinition>
-                            <RowDefinition Height="1*"></RowDefinition>
-                            <RowDefinition Height="90"></RowDefinition>
-                        </Grid.RowDefinitions>
+                <Frame Grid.Column="1" Grid.Row="1" x:Name="fr_Content">
+                    <Border x:Name="brd_main">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="150"></RowDefinition>
+                                <RowDefinition Height="90"></RowDefinition>
+                                <RowDefinition Height="1*"></RowDefinition>
+                                <RowDefinition Height="90"></RowDefinition>
+                            </Grid.RowDefinitions>
 
-                        <Grid Grid.Row="0">
+                            <Grid Grid.Row="0">
 
-                            <DropDownButton  CornerRadius="5" Content="Method" x:Name="dpb_Metod" FontSize="20" Height="54" Margin="10,46,0,0" VerticalAlignment="Top" >
+                                <DropDownButton  CornerRadius="5" Content="Method" x:Name="dpb_Metod" FontSize="20" Height="54" Margin="10,46,0,0" VerticalAlignment="Top" >
+                                    <DropDownButton.Flyout>
+                                        <MenuFlyout Placement="BottomEdgeAlignedLeft" >
+                                            <MenuFlyoutItem Text="POST" Tag="POST" Click="ChoseMethod"/>
+                                            <MenuFlyoutItem Text="GET" Tag="GET" Click="ChoseMethod"/>
+                                            <MenuFlyoutItem Text="PUT" Tag="PUT" Click="ChoseMethod"/>
+                                            <MenuFlyoutItem Text="DELETE" Tag="DELETE" Click="ChoseMethod"/>
+                                        </MenuFlyout>
+                                    </DropDownButton.Flyout>
+                                </DropDownButton>
+
+                                <TextBox CornerRadius="5" FontSize="25" PlaceholderText="Url" x:Name="txtUrl" VerticalAlignment="Top" Height="53" Margin="124,47,127,0"/>
+                                <Button Content="Send" FontSize="20" CornerRadius="5" Height="52" x:Name="btnSend" Click="btnSend_Click" Margin="0,0,10,0" HorizontalAlignment="Right" Width="112"/>
+                            </Grid>
+
+                            <RadioButton IsChecked="True" Grid.Row="1" Content="none" Margin="20,0,0,0" Width="83" />
+                            <RadioButton Grid.Row="1" Content="Params" Margin="144,0,0,0" Width="120" />
+                            <RadioButton Grid.Row="1" Content="Data" Margin="268,0,0,0" Width="120" />
+                            <RadioButton Grid.Row="1" Content="Base 64" Margin="392,0,0,0" Width="120" />
+
+                            <DropDownButton x:Name="dpb_Type" Content="Type" CornerRadius="5" Grid.Row="1" Margin="527,0,0,0" Width="67" >
                                 <DropDownButton.Flyout>
-                                    <MenuFlyout Placement="BottomEdgeAlignedLeft" >
-                                        <MenuFlyoutItem Text="POST" Tag="POST" Click="ChoseMethod"/>
-                                        <MenuFlyoutItem Text="GET" Tag="GET" Click="ChoseMethod"/>
-                                        <MenuFlyoutItem Text="PUT" Tag="PUT" Click="ChoseMethod"/>
-                                        <MenuFlyoutItem Text="DELETE" Tag="DELETE" Click="ChoseMethod"/>
+                                    <MenuFlyout Placement="BottomEdgeAlignedLeft">
+                                        <MenuFlyoutItem Text="Json" Tag="Json" Click="ChoseType"/>
+                                        <MenuFlyoutItem Text="Html" Tag="Html" Click="ChoseType"/>
+                                        <MenuFlyoutItem Text="XML" Tag="XML" Click="ChoseType"/>
+                                        <MenuFlyoutItem Text="None" Tag="None" Click="ChoseType"/>
                                     </MenuFlyout>
                                 </DropDownButton.Flyout>
                             </DropDownButton>
+                            <Button  Content="Show Result" x:Name="btn_showResult" Click="btn_showResult_Click" Grid.Row="1" CornerRadius="5" Margin="617,0,0,0" Width="95"/>
 
-                            <TextBox CornerRadius="5" FontSize="25" PlaceholderText="Url" x:Name="txtUrl" VerticalAlignment="Top" Height="53" Margin="124,47,127,0"/>
-                            <Button Content="Send" FontSize="20" CornerRadius="5" Height="52" x:Name="btnSend" Click="btnSend_Click" Margin="0,0,10,0" HorizontalAlignment="Right" Width="112"/>
-                        </Grid>
+                            <Grid Grid.Row="2" x:Name="gr_Params">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <SplitView  Grid.Column="0" x:Name="spl_Result" HorizontalAlignment="Center" >
+                                        <SplitView.Pane>
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="80"></RowDefinition>
+                                                    <RowDefinition Height="1*"></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <Button Content="Json" CornerRadius="5" Width="96"/>
+                                                <Button Content="Row" CornerRadius="5" HorizontalAlignment="Center" Width="119"/>
+                                                <Button Content="Request" Margin="225,0,0,0" CornerRadius="5" Width="95"/>
+                                                <ScrollViewer Grid.Row="1">
+                                                    <RichTextBlock x:Name="txt_result" IsTextSelectionEnabled="True" Padding="15">
+                                                        <Paragraph x:Name="txt_resultContent">
+                                                            <Run x:Name="run_Content"></Run>
+                                                        </Paragraph>
+                                                    </RichTextBlock>
+                                                </ScrollViewer>
+                                            </Grid>
+                                        </SplitView.Pane>
+                                    </SplitView>
+                                </Grid>
+                                <Grid Grid.Column="1" x:Name="gr_txtContentRequest">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="80"></RowDefinition>
+                                        <RowDefinition Height="1*"></RowDefinition>
+                                    </Grid.RowDefinitions>
 
-                        <RadioButton IsChecked="True" Grid.Row="1" Content="none" Margin="20,0,0,0" Width="83" />
-                        <RadioButton Grid.Row="1" Content="Params" Margin="144,0,0,0" Width="120" />
-                        <RadioButton Grid.Row="1" Content="Data" Margin="268,0,0,0" Width="120" />
-                        <RadioButton Grid.Row="1" Content="Base 64" Margin="392,0,0,0" Width="120" />
+                                    <Button Content="Headers" CornerRadius="5" Margin="20,0,0,0" Width="71"/>
+                                    <Button Content="Parameters" Margin="110,0,0,0" CornerRadius="5" Width="89"/>
+                                    <Button Content="Cookies" CornerRadius="5" Margin="219,0,0,0" Width="69"/>
 
-                        <DropDownButton x:Name="dpb_Type" Content="Type" CornerRadius="5" Grid.Row="1" Margin="527,0,0,0" Width="67" >
-                            <DropDownButton.Flyout>
-                                <MenuFlyout Placement="BottomEdgeAlignedLeft">
-                                    <MenuFlyoutItem Text="Json" Tag="Json" Click="ChoseType"/>
-                                    <MenuFlyoutItem Text="Html" Tag="Html" Click="ChoseType"/>
-                                    <MenuFlyoutItem Text="XML" Tag="XML" Click="ChoseType"/>
-                                    <MenuFlyoutItem Text="None" Tag="None" Click="ChoseType"/>
-                                </MenuFlyout>
-                            </DropDownButton.Flyout>
-                        </DropDownButton>
-                        <Button  Content="Show Result" x:Name="btn_showResult" Click="btn_showResult_Click" Grid.Row="1" CornerRadius="5" Margin="617,0,0,0" Width="95"/>
+                                    <RichEditBox Grid.Row="1" Padding="10" x:Name="txt_SendData" TabNavigation="Once" Margin="20,10,20,20" PlaceholderText="Content Value For Send" FontSize="20" TabIndex="8">
 
-                        <Grid Grid.Row="2" x:Name="gr_Params">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto"></ColumnDefinition>
-                                <ColumnDefinition Width="1*"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <Grid Grid.Column="0">
-                                <SplitView  Grid.Column="0" x:Name="spl_Result" HorizontalAlignment="Center" >
-                                    <SplitView.Pane>
-                                        <Grid>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="80"></RowDefinition>
-                                                <RowDefinition Height="1*"></RowDefinition>
-                                            </Grid.RowDefinitions>
-                                            <Button Content="Json" CornerRadius="5" Width="96"/>
-                                            <Button Content="Row" CornerRadius="5" HorizontalAlignment="Center" Width="119"/>
-                                            <Button Content="Request" Margin="225,0,0,0" CornerRadius="5" Width="95"/>
-                                            <ScrollViewer Grid.Row="1">
-                                                <RichTextBlock x:Name="txt_result" IsTextSelectionEnabled="True" Padding="15">
-                                                    <Paragraph x:Name="txt_resultContent">
-                                                        <Run x:Name="run_Content"></Run>
-                                                    </Paragraph>
-                                                </RichTextBlock>
-                                            </ScrollViewer>
-                                        </Grid>
-                                    </SplitView.Pane>
-                                </SplitView>
-                            </Grid>
-                            <Grid Grid.Column="1" x:Name="gr_txtContentRequest">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="80"></RowDefinition>
-                                    <RowDefinition Height="1*"></RowDefinition>
-                                </Grid.RowDefinitions>
+                                    </RichEditBox>
+                                </Grid>
 
-                                <Button Content="Headers" CornerRadius="5" Margin="20,0,0,0" Width="71"/>
-                                <Button Content="Parameters" Margin="110,0,0,0" CornerRadius="5" Width="89"/>
-                                <Button Content="Cookies" CornerRadius="5" Margin="219,0,0,0" Width="69"/>
-
-                                <RichEditBox Grid.Row="1" Padding="10" x:Name="txt_SendData" TabNavigation="Once" Margin="20,10,20,20" PlaceholderText="Content Value For Send" FontSize="20" TabIndex="8">
-
-                                </RichEditBox>
                             </Grid>
 
+                            <TextBlock Grid.Row="3" x:Name="lbl_Date" Margin="0,45,10,0" HorizontalAlignment="Right" Width="362" Height="35" VerticalAlignment="Top"/>
                         </Grid>
+                    </Border>
+                </Frame>
 
-                        <TextBlock Grid.Row="3" x:Name="lbl_Date" Margin="0,45,10,0" HorizontalAlignment="Right" Width="362" Height="35" VerticalAlignment="Top"/>
-                    </Grid>
-                </Border>
-            </Frame>
+                <Grid Grid.Row="1" Grid.Column="0">
+                    <NavigationView x:Name="nav_item" IsPaneOpen="False" IsBackEnabled="True" BackRequested="NavigationView_BackRequested" Padding="10" PaneDisplayMode="LeftMinimal" SelectionChanged="NavigationView_SelectionChanged">
+                        <NavigationView.MenuItems>
+                            <NavigationViewItem Tag="Home" Icon="Home" Content="Home" CornerRadius="5" x:Name="btn_Home"/>
+                            <NavigationViewItem Tag="Login" Icon="Account" Content="Login" CornerRadius="5" x:Name="btn_Login"/>
+                            <NavigationViewItem Tag="gRPC" Content="gRPC" CornerRadius="5" x:Name="btn_HttpVersion"/>
 
+                        </NavigationView.MenuItems>
+                    </NavigationView>
+                </Grid>
 
-            <Grid Grid.Row="1" Grid.Column="0">
-                <NavigationView IsPaneOpen="False" Padding="10" PaneDisplayMode="LeftMinimal" SelectionChanged="NavigationView_SelectionChanged">
-                    <NavigationView.MenuItems>
-                        <NavigationViewItem Tag="Home" Icon="Home" Content="Home" CornerRadius="5" x:Name="btn_Home" />
-                        <NavigationViewItem Tag="Login" Icon="Account" Content="Login" CornerRadius="5" x:Name="btn_Login"/>
-                        <NavigationViewItem Tag="gRPC" Content="gRPC" CornerRadius="5" x:Name="btn_HttpVersion"/>
-
-                    </NavigationView.MenuItems>
-                </NavigationView>
             </Grid>
-
+            <TextBlock Text="Friends Co" Grid.Column="1" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="525,0,0,0" Height="27" Width="93"/>
         </Grid>
-        <TextBlock Text="Friends Co" Grid.Column="1" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="525,0,0,0" Height="27" Width="93"/>
-    </Grid>
+    </ScrollViewer>
 </Page>

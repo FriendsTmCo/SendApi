@@ -6,10 +6,39 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" 
-    MaxWidth="750" MaxHeight="850" Width="750" Height="850">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" >
 
-    <Grid   MaxWidth="750" MaxHeight="850" Width="750" Height="850">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Border Padding="35">
+            <Image  x:Name="img_Login" Source="/Assets/login.png" Opacity="0.5"/>
+        </Border>
+        <Border Grid.Column="1" Margin="35" CornerRadius="20">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#7FFFFFFF" Offset="1"/>
+                    <GradientStop Color="#7FEDEDED" Offset="0.952"/>
+                    <GradientStop Color="#7F0E0E0E" Offset="0.045"/>
+                </LinearGradientBrush>
+            </Border.Background>
 
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"></RowDefinition>
+                    <RowDefinition Height="100"></RowDefinition>
+                    <RowDefinition Height="200"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Login" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" FontFamily="Arial Black"/>
+                <TextBox Grid.Row="2" Margin="20,44,20,100" PlaceholderText="User Name" FontSize="25" CornerRadius="5"/>
+                <PasswordBox Grid.Row="2" Margin="20,109,20,35" PlaceholderText="Password" FontSize="25" CornerRadius="5"/>
+                <Button Content="Login" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="21,6,20,0" Height="43" FontSize="20" CornerRadius="5"/>
+                <TextBlock Text="Forget Password?" Foreground="Blue" Grid.Row="3" Margin="21,65,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20"/>
+            </Grid>
+        </Border>
     </Grid>
 </Page>

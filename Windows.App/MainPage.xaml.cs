@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Net.Http;
 using TestApi.Pages;
 using Windows.ApplicationModel.Core;
@@ -56,7 +57,7 @@ namespace TestApi
             var result = await msg.ShowAsync();
             if ((int)result.Id == 0)
             {
-               
+
             }
         }
 
@@ -85,13 +86,31 @@ namespace TestApi
             lbl_Date.Text = DateTime.Now.Year.ToString() + " " + DateTime.Now.DayOfWeek.ToString() + " " + DateTime.Now.Month.ToString("00");
         }
 
-        private async void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        private void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
             var option = (NavigationViewItem)sender.SelectedItem;
-            MessageDialog msg = new MessageDialog($"{option.Tag.ToString()}");
-            msg.Commands.Add(new UICommand { Id = 0, Label = "OK" });
-            msg.Commands.Add(new UICommand { Id = 1, Label = "Cancel" });
-            await msg.ShowAsync();
+            switch (option.Tag)
+            {
+                case "Login":
+                    fr_Content.Navigate(typeof(Login));
+                    break;
+
+                case "Home":
+                    {
+                        fr_Content.Content = null;
+                        fr_Content.Content = brd_main;
+                        break;
+                    }
+                default:
+                    break;
+            }
+        }
+
+        private void NavigationView_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
+        {
+            fr_Content.Content = null;
+            fr_Content.Content = brd_main;
+            nav_item.SelectedItem = btn_Home;
         }
     }
 }
