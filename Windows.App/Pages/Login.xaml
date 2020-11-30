@@ -37,7 +37,7 @@
                 <TextBox Grid.Row="2" Margin="20,44,20,100" PlaceholderText="User Name" FontSize="25" CornerRadius="5"/>
                 <PasswordBox Grid.Row="2" Margin="20,109,20,35" PlaceholderText="Password" FontSize="25" CornerRadius="5"/>
                 <Button Content="Login" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="21,6,20,0" Height="43" FontSize="20" CornerRadius="5"/>
-                <HyperlinkButton Content="Forget Password?" Grid.Row="3" Margin="21,65,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20"/>
+                <HyperlinkButton Content="Forget Password?" Grid.Row="3" Margin="21,65,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15"/>
             </Grid>
         </Border>
     </Grid>
