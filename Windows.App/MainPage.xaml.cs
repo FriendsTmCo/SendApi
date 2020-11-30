@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Net.Http;
 using TestApi.Pages;
+using Windows.App.Pages;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 using Windows.UI.Popups;
@@ -89,18 +91,21 @@ namespace TestApi
         private void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
             var option = (NavigationViewItem)sender.SelectedItem;
-            switch (option.Tag)
+
+            switch (option.Content)
             {
                 case "Login":
                     fr_Content.Navigate(typeof(Login));
                     break;
 
                 case "Home":
-                    {
-                        fr_Content.Content = null;
-                        fr_Content.Content = brd_main;
-                        break;
-                    }
+                    fr_Content.Content = brd_main;
+                    break;
+
+                case "Settings":
+                    fr_Content.Navigate(typeof(Setting));
+                    break;
+
                 default:
                     break;
             }
@@ -108,10 +113,11 @@ namespace TestApi
 
         private void NavigationView_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
         {
-            fr_Content.Content = null;
             fr_Content.Content = brd_main;
             nav_item.SelectedItem = btn_Home;
         }
+
+      
     }
 }
 

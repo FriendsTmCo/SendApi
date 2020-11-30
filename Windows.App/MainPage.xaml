@@ -11,14 +11,11 @@
 
     <ScrollViewer HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Visible">
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="433*"/>
-            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"></RowDefinition>
                 <RowDefinition Height="1*"></RowDefinition>
             </Grid.RowDefinitions>
+            
             <Grid Grid.Row="1" Grid.ColumnSpan="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="150"></ColumnDefinition>
@@ -102,35 +99,35 @@
                                         <RowDefinition Height="1*"></RowDefinition>
                                     </Grid.RowDefinitions>
 
-                                    <Button Content="Headers" CornerRadius="5" Margin="20,0,0,0" Width="71"/>
+                                    <Button Content="Headers" CornerRadius="5" Margin="20,0,0,0" Width="71" x:Name="btn_headers"/>
                                     <Button Content="Parameters" Margin="110,0,0,0" CornerRadius="5" Width="89"/>
                                     <Button Content="Cookies" CornerRadius="5" Margin="219,0,0,0" Width="69"/>
 
-                                    <RichEditBox Grid.Row="1" Padding="10" x:Name="txt_SendData" TabNavigation="Once" Margin="20,10,20,20" PlaceholderText="Content Value For Send" FontSize="20" TabIndex="8">
-
-                                    </RichEditBox>
+                                    <Frame x:Name="fr_HttpValue" Grid.Row="1">
+                                        <RichEditBox Grid.Row="1" Padding="10" x:Name="txt_SendData" TabNavigation="Once" Margin="20,10,20,20" PlaceholderText="Content Value For Send" FontSize="20" TabIndex="8"/>
+                                    </Frame>
                                 </Grid>
-
                             </Grid>
 
-                            <TextBlock Grid.Row="3" x:Name="lbl_Date" Margin="0,45,10,0" HorizontalAlignment="Right" Width="362" Height="35" VerticalAlignment="Top"/>
+                            <TextBlock Grid.Row="3" TextAlignment="Right"  Text="date Time" FontSize="20" x:Name="lbl_Date" Margin="0,45,10,0" HorizontalAlignment="Right" Width="362" Height="35" VerticalAlignment="Top"/>
                         </Grid>
                     </Border>
                 </Frame>
 
                 <Grid Grid.Row="1" Grid.Column="0">
-                    <NavigationView x:Name="nav_item" IsPaneOpen="False" IsBackEnabled="True" BackRequested="NavigationView_BackRequested" Padding="10" PaneDisplayMode="LeftMinimal" SelectionChanged="NavigationView_SelectionChanged">
+                    <NavigationView IsSettingsVisible="True" x:Name="nav_item" IsPaneOpen="False" IsBackEnabled="True" BackRequested="NavigationView_BackRequested" Padding="10" PaneDisplayMode="LeftMinimal" SelectionChanged="NavigationView_SelectionChanged">
                         <NavigationView.MenuItems>
                             <NavigationViewItem Tag="Home" Icon="Home" Content="Home" CornerRadius="5" x:Name="btn_Home"/>
                             <NavigationViewItem Tag="Login" Icon="Account" Content="Login" CornerRadius="5" x:Name="btn_Login"/>
                             <NavigationViewItem Tag="gRPC" Content="gRPC" CornerRadius="5" x:Name="btn_HttpVersion"/>
-
                         </NavigationView.MenuItems>
                     </NavigationView>
                 </Grid>
 
             </Grid>
-            <TextBlock Text="Friends Co" Grid.Column="1" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="525,0,0,0" Height="27" Width="93"/>
+
+            <TextBlock Text="Friends Tm Co" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"  Height="27" FontFamily="Comic Sans MS" Margin="10,0,0,0"/>
+            <TextBlock Text="F.Send Api" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Right"  Height="27" FontFamily="Comic Sans MS" Margin="0,0,14,0"/>
         </Grid>
     </ScrollViewer>
 </Page>
