@@ -1,19 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Net.Http;
-using TestApi.Pages;
-using Windows.App.Pages;
-using Windows.ApplicationModel.Core;
-using Windows.UI.Core;
-using Windows.UI.Popups;
-using Windows.UI.ViewManagement;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace TestApi
+namespace Windows.App
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -25,100 +27,6 @@ namespace TestApi
             this.InitializeComponent();
         }
 
-        //private async void btnAccount_Click(object sender, RoutedEventArgs e)
-        //{
-        //    var currentAV = ApplicationView.GetForCurrentView();
-        //    var newAV = CoreApplication.CreateNewView();
-        //    await newAV.Dispatcher.RunAsync(
-        //                    CoreDispatcherPriority.Normal,
-        //                    async () =>
-        //                    {
-        //                        var newWindow = Window.Current;
-        //                        var newAppView = ApplicationView.GetForCurrentView();
-        //                        newAppView.Title = "Login";
-
-        //                        var frame = new Frame();
-        //                        frame.Navigate(typeof(Login), null);
-        //                        newWindow.Content = frame;
-        //                        newWindow.Activate();
-
-        //                        await ApplicationViewSwitcher.TryShowAsStandaloneAsync(
-        //                            newAppView.Id,
-        //                            ViewSizePreference.UseMinimum,
-        //                            currentAV.Id,
-        //                            ViewSizePreference.UseMinimum);
-        //                    });
-        //}
-
-
-        private async void btnSend_Click(object sender, RoutedEventArgs e)
-        {
-            MessageDialog msg = new MessageDialog($"Send To ({txtUrl.Text})");
-            msg.Commands.Add(new UICommand { Id = 0, Label = "OK" });
-            msg.Commands.Add(new UICommand { Id = 1, Label = "Cancel" });
-            var result = await msg.ShowAsync();
-            if ((int)result.Id == 0)
-            {
-
-            }
-        }
-
-        private void btn_showResult_Click(object sender, RoutedEventArgs e)
-        {
-            spl_Result.IsPaneOpen = true;
-        }
-
-        private void ChoseMethod(object sender, RoutedEventArgs e)
-        {
-            var option = ((MenuFlyoutItem)sender).Tag.ToString();
-
-            dpb_Metod.Content = option;
-        }
-
-        private void ChoseType(object sender, RoutedEventArgs e)
-        {
-            var option = ((MenuFlyoutItem)sender).Tag.ToString();
-
-            dpb_Type.Content = option;
-        }
-
-
-        private void main_Loaded(object sender, RoutedEventArgs e)
-        {
-            lbl_Date.Text = DateTime.Now.Year.ToString() + " " + DateTime.Now.DayOfWeek.ToString() + " " + DateTime.Now.Month.ToString("00");
-        }
-
-        private void NavigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
-        {
-            var option = (NavigationViewItem)sender.SelectedItem;
-
-            switch (option.Content)
-            {
-                case "Login":
-                    fr_Content.Navigate(typeof(Login));
-                    break;
-
-                case "Home":
-                    fr_Content.Content = brd_main;
-                    break;
-
-                case "Settings":
-                    fr_Content.Navigate(typeof(Setting));
-                    break;
-
-                default:
-                    break;
-            }
-        }
-
-        private void NavigationView_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
-        {
-            fr_Content.Content = brd_main;
-            nav_item.SelectedItem = btn_Home;
-        }
-
-      
+        
     }
 }
-
-

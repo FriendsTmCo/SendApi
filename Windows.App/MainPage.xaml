@@ -1,15 +1,82 @@
 ﻿<Page
-    x:Name="main"
-    x:Class="TestApi.MainPage"
+    x:Class="Windows.App.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:TestApi"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Windows.App"
+     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Loaded="main_Loaded">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <ScrollViewer HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Visible">
-       
+    <ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <DropDownButton Content="Workspaces" CornerRadius="5" Margin="8,0,0,0">
+                        <DropDownButton.Flyout>
+                            <MenuFlyout x:Name="drp_WorkSpaces">
+                                
+                            </MenuFlyout>
+                        </DropDownButton.Flyout>
+                    </DropDownButton>
+                </Grid>
+                <CommandBar Grid.Column="1" Background="#001F1F1F" >
+                    <CommandBar.PrimaryCommands>
+                        <AppBarButton Icon="Setting" CornerRadius="5" Label="Setting" x:Name="btn_Setting"/>
+                        <AppBarButton Icon="Account" CornerRadius="5" Label="Account" x:Name="btn_Account"/>
+                        <AppBarButton Icon="Mail" CornerRadius="5" Label="Notifications" x:Name="btn_Notification"/>
+                        <AppBarButton Icon="Sync" CornerRadius="5" Label="sync" x:Name="btn_sync"/>
+                    </CommandBar.PrimaryCommands>
+                </CommandBar>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" BorderBrush="White">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"></RowDefinition>
+                            <RowDefinition Height="100"></RowDefinition>
+                            <RowDefinition Height="1*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBox CornerRadius="10" PlaceholderText="Search : " FontSize="20" Margin="5" x:Name="txt_collectionSearch"/>
+                        <Button Grid.Row="1" Content="New Collection" CornerRadius="5" HorizontalAlignment="Center" VerticalAlignment="Top" Width="235" Margin="0,6,0,0"/>
+                        <Button Grid.Row="1" Content="Import Collection" CornerRadius="5" HorizontalAlignment="Center" Width="235" Margin="0,50,0,0" VerticalAlignment="Top"/>
+                        <Pivot Grid.Row="2" >
+                            <PivotItem>
+                                <PivotItem.Header>
+                                    <TextBlock Text="History" FontSize="15"/>
+                                </PivotItem.Header>
+                            </PivotItem>
+                            <PivotItem >
+                                <PivotItem.Header>
+                                    <TextBlock Text="Collections" FontSize="15"/>
+                                </PivotItem.Header>
+                            </PivotItem>
+                            <PivotItem>
+                                <PivotItem.Header>
+                                    <TextBlock Text="APIs" FontSize="15"/>
+                                </PivotItem.Header>
+                            </PivotItem>
+                        </Pivot>
+                    </Grid>
+                </Border>
+                <Frame Grid.Column="1">
+
+                </Frame>
+            </Grid>
+        </Grid>
     </ScrollViewer>
 </Page>
