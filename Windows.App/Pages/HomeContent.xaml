@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="Windows.App.Pages.HomeContent"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Windows.App.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DropDownButton Content="Method" x:Name="drp_Type" CornerRadius="5" Height="52" Margin="7,0,0,0" Width="114" FontSize="20">
+            <DropDownButton.Flyout>
+                <MenuFlyout Placement="BottomEdgeAlignedLeft">
+                    <MenuFlyoutItem Text="GET" Tag="GET" Click="btn_ChoseMethod" x:Name="btn_GET"/>
+                    <MenuFlyoutItem Text="POST" Tag="POST" Click="btn_ChoseMethod" x:Name="btn_POST"/>
+                    <MenuFlyoutItem Text="DELETE" Tag="DELETE" Click="btn_ChoseMethod" x:Name="btn_DELTE"/>
+                    <MenuFlyoutItem Text="COPY" Tag="COPY" Click="btn_ChoseMethod" x:Name="btn_COPY"/>
+                    <MenuFlyoutItem Text="HEAD" Tag="HEAD" Click="btn_ChoseMethod" x:Name="btn_HEAD"/>
+                    <MenuFlyoutItem Text="OPTIONS" Tag="OPTIONS" Click="btn_ChoseMethod" x:Name="btn_OPTIONS"/>
+                    <MenuFlyoutItem Text="LINK" Tag="LINK" Click="btn_ChoseMethod" x:Name="btn_LINK"/>
+                    <MenuFlyoutItem Text="UNLINK" Tag="UNLINK" Click="btn_ChoseMethod" x:Name="btn_UNLINK"/>
+                    <MenuFlyoutItem Text="LOCK" Tag="LOCK" Click="btn_ChoseMethod" x:Name="btn_LOCK"/>
+                    <MenuFlyoutItem Text="UNLOCK" Tag="UNLOCK" Click="btn_ChoseMethod" x:Name="btn_UNLOCK"/>
+                    <MenuFlyoutItem Text="VIEW" Tag="VIEW" Click="btn_ChoseMethod" x:Name="btn_VIEW"/>
+                    <MenuFlyoutItem Text="PRUGE" Tag="PRUGE" Click="btn_ChoseMethod" x:Name="btn_PRUGE"/>
+                    <MenuFlyoutItem Text="PROPFIND" Tag="PROPFIND" Click="btn_ChoseMethod" x:Name="btn_PROPFIND"/>
+                    <MenuFlyoutItem Text="PATCH" Tag="PATCH" Click="btn_ChoseMethod" x:Name="btn_PATCH"/>
+                </MenuFlyout>
+            </DropDownButton.Flyout>
+        </DropDownButton>
+        <TextBox Margin="126,25,91,25" CornerRadius="5" PlaceholderText="URL" FontSize="20"/>
+        <Button Content="Send" FontSize="20" Margin="0,0,10,0" Width="76" Height="50" CornerRadius="5" HorizontalAlignment="Right"/>
+    </Grid>
+</Page>

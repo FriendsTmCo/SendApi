@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using TestApi.Pages;
-using Windows.App.Pages;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -17,36 +15,23 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace Windows.App
+namespace Windows.App.Pages
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class HomeContent : Page
     {
-        public MainPage()
+        public HomeContent()
         {
             this.InitializeComponent();
         }
 
-        private void btn_Account_Click(object sender, RoutedEventArgs e)
-        {
-            frm_Main.Navigate(typeof(Login));
-        }
 
-        private void btn_Home_Click(Object sender, RoutedEventArgs e)
+        private void btn_ChoseMethod(Object sender, RoutedEventArgs e)
         {
-            frm_Main.Navigate(typeof(Home));
-        }
-
-        private void btn_Setting_Click(Object sender, RoutedEventArgs e)
-        {
-            frm_Main.Navigate(typeof(Setting));
-        }
-
-        private void btn_Clear_Click(Object sender, RoutedEventArgs e)
-        {
-            frm_Main.Navigate(typeof(Home));
+            var option = (MenuFlyoutItem)sender;
+            drp_Type.Content = option.Tag;
         }
     }
 }

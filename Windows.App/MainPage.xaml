@@ -31,8 +31,10 @@
                 </Grid>
                 <CommandBar Grid.Column="1" Background="#001F1F1F" >
                     <CommandBar.PrimaryCommands>
-                        <AppBarButton Icon="Setting" CornerRadius="5" Label="Setting" x:Name="btn_Setting"/>
-                        <AppBarButton Icon="Account" CornerRadius="5" Label="Account" x:Name="btn_Account"/>
+                        <AppBarButton Icon="Clear" CornerRadius="5" Label="Clear All" x:Name="btn_Clear" Click="btn_Clear_Click"/>
+                        <AppBarButton Icon="Home" CornerRadius="5" Label="Home" x:Name="btn_Home" Click="btn_Home_Click"/>
+                        <AppBarButton Icon="Setting" CornerRadius="5" Label="Setting" x:Name="btn_Setting" Click="btn_Setting_Click"/>
+                        <AppBarButton Icon="Account" CornerRadius="5" Label="Account" x:Name="btn_Account" Click="btn_Account_Click"/>
                         <AppBarButton Icon="Mail" CornerRadius="5" Label="Notifications" x:Name="btn_Notification"/>
                         <AppBarButton Icon="Sync" CornerRadius="5" Label="sync" x:Name="btn_sync"/>
                     </CommandBar.PrimaryCommands>
@@ -52,13 +54,16 @@
                             <RowDefinition Height="1*"></RowDefinition>
                         </Grid.RowDefinitions>
                         <TextBox CornerRadius="10" PlaceholderText="Search : " FontSize="20" Margin="5" x:Name="txt_collectionSearch"/>
-                        <Button Grid.Row="1" Content="New Collection" CornerRadius="5" HorizontalAlignment="Center" VerticalAlignment="Top" Width="235" Margin="0,6,0,0"/>
+                        <Button  Grid.Row="1" Content="New Collection" CornerRadius="5" HorizontalAlignment="Center" VerticalAlignment="Top" Width="235" Margin="0,6,0,0"/>
                         <Button Grid.Row="1" Content="Import Collection" CornerRadius="5" HorizontalAlignment="Center" Width="235" Margin="0,50,0,0" VerticalAlignment="Top"/>
                         <Pivot Grid.Row="2" >
                             <PivotItem>
                                 <PivotItem.Header>
                                     <TextBlock Text="History" FontSize="15"/>
                                 </PivotItem.Header>
+                                <ListBox x:Name="lst_History" Background="#001F1F1F">
+                                    
+                                </ListBox>
                             </PivotItem>
                             <PivotItem >
                                 <PivotItem.Header>
@@ -73,8 +78,8 @@
                         </Pivot>
                     </Grid>
                 </Border>
-                <Frame Grid.Column="1">
-
+                <Frame Grid.Column="1" x:Name="frm_Main">
+                   
                 </Frame>
             </Grid>
         </Grid>

@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="Windows.App.Pages.Home"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Windows.App.Pages"
+    xmlns:controllers="using:Microsoft.UI.Xaml.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid >
+        <Pivot x:Name="piv_Main" FontSize="15">
+            <PivotItem>
+                <PivotItem.Header>
+                    <Button Content="+" x:Name="btn_NewPivot" Click="btn_NewPivot_Click"/>
+                </PivotItem.Header>
+            </PivotItem>
+           
+        </Pivot>
+    </Grid>
+</Page>
