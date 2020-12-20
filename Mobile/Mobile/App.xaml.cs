@@ -1,8 +1,5 @@
-﻿using Mobile.Services;
-using Mobile.Views;
-using System;
+﻿using Mobile.Views;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace Mobile
 {
@@ -13,7 +10,7 @@ namespace Mobile
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            
             MainPage = new AppShell();
         }
 
